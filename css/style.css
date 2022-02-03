@@ -1,4 +1,6 @@
 :root {
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
   --main-text-color: #212121;
   --second--text-color: #757575;
   --main-bcg-color: #ffffff;
@@ -45,13 +47,21 @@ img {
 .backdrop.is-hidden {
   opacity: 0;
   pointer-events: none;
+  visibility: hidden;
+}
+
+.backdrop.is-hidden .modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.5);
 }
 
 .modal {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(1);
   height: 581px;
   width: 528px;
 
@@ -59,6 +69,8 @@ img {
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
+
+  transition: transform 250ms linear;
 }
 
 .modal-btn {
@@ -155,6 +167,8 @@ img {
   font-weight: 500;
   line-height: 1.1;
   letter-spacing: 0.02em;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .nav .link.current {
   color: var(--acent-color);
@@ -192,6 +206,8 @@ img {
   line-height: 1.1;
   letter-spacing: 0.02em;
   fill: var(--second--text-color);
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* .test:hover {
@@ -457,6 +473,8 @@ img {
   padding: 0;
   background-color: var(--main-bcg-color);
   border-radius: 50%;
+
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .icon-button:hover,
@@ -555,6 +573,8 @@ img {
   color: var(--white-color);
   line-height: 1.7;
   text-decoration: none;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .footer-address:hover,
 .footer-address:focus {
@@ -564,6 +584,8 @@ img {
   color: rgba(255, 255, 255, 0.6);
   line-height: 1.7;
   text-decoration: none;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .footer-email:hover,
 .footer-email:focus {
@@ -574,6 +596,8 @@ img {
   color: rgba(255, 255, 255, 0.6);
   line-height: 1.7;
   text-decoration: none;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .footer-tel:hover,
 .footer-tel:focus {
@@ -655,6 +679,9 @@ img {
 
 .btn-prj {
   background-color: var(--btn-bcg-color);
+
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .btn-prj:hover,
 .btn-prj:focus {
@@ -667,6 +694,8 @@ img {
 .prj a {
   text-decoration: none;
   display: block;
+
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .prj a:hover,
@@ -701,6 +730,42 @@ img {
   border-right: 1px solid #eeeeee;
   border-bottom: 1px solid #eeeeee;
   border-left: 1px solid #eeeeee;
+}
+
+/* portfolio translation */
+
+.portfolio-thumb {
+  position: relative;
+  overflow: hidden;
+}
+
+.card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(33, 150, 243, 0.9);
+  opacity: 0;
+
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card p {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.6;
+  letter-spacing: 0.03em;
+  color: #ffffff;
+  padding: 63px 24px;
+}
+
+.item:hover .card,
+.item:focus .card {
+  transform: translateY(0);
+  opacity: 1;
 }
 
 /* основной цвет текста #212121  */
